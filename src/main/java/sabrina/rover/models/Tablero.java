@@ -1,5 +1,7 @@
 package sabrina.rover.models;
 
+import java.util.Random;
+
 public class Tablero {
     private int ejeX; // Número de columnas en el tablero
     private int ejeY; // Número de filas en el tablero
@@ -33,5 +35,16 @@ public class Tablero {
         } else {
             throw new IllegalArgumentException("Posición fuera de los límites del tablero");
         }
+    }
+
+    public void inicializarConJugadorEnPosicionAleatoria(Rover rover) {
+        Random random = new Random();
+        int x = random.nextInt(ejeX);
+        int y = random.nextInt(ejeY);
+
+        rover.setX(x);
+        rover.setY(y);
+
+        colocarContenido(rover, x, y);
     }
 }

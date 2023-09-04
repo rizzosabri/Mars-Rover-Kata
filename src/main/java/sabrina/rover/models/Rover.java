@@ -1,12 +1,12 @@
 package sabrina.rover.models;
 
-public class Jugador {
+public class Rover {
 
         private int x; // Posición en el eje X
         private int y; // Posición en el eje Y
         private String orientacion; // Orientación del jugador
 
-        public Jugador(int x, int y, String orientacion) {
+        public Rover(int x, int y, String orientacion) {
             this.x = x;
             this.y = y;
             this.orientacion = orientacion;
@@ -36,6 +36,7 @@ public class Jugador {
         public void setOrientacion(String orientacion) {
             this.orientacion = orientacion;
         }
+
 
     }
 
