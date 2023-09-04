@@ -11,8 +11,12 @@ public class Main {
         Tablero tablero = new Tablero(10, 10); // Ajusta el tamaño del tablero según tus necesidades
         Rover rover = new Rover(0, 0, "Norte"); // Puedes ajustar la orientación inicial si lo deseas
         tablero.inicializarConJugadorEnPosicionAleatoria(rover);
-        System.out.println("Posición del jugador: X=" + rover.getX() + ", Y=" + rover.getY());
-        System.out.println("tablero" + tablero.getCasilla(1,1) );
+        System.out.println("Posición del Rover: X=" + rover.getX() + ", Y=" + rover.getY());
+
+        rover.moverAdelante();
+
+        // Verificar la nueva posición del jugador
+        System.out.println("Nueva posición del rover: X=" + rover.getX() + ", Y=" + rover.getY());
 
     }
 
