@@ -9,7 +9,7 @@ public class TableroController {
 
     @GetMapping("/tablero")
     public String mostrarTablero(Model model) {
-        // Aquí puedes cargar los datos del tablero y pasarlos al modelo
+        //  datos del tablero y pasarlos al modelo
         // model.addAttribute("tablero", tablero);
         return "tablero"; // Nombre de la plantilla HTML
     }
