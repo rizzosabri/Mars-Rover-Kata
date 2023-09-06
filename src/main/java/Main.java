@@ -14,7 +14,7 @@ public class Main {
         tablero.colocarContenido(obs1,0,1);
         tablero.inicializarConObjetoEnPosicionAleatoria(rover);
         tablero.inicializarConObjetoEnPosicionAleatoria(obs1);
-        tablero.borrarContenido(rover.getX(), rover.getY());
+        tablero.vaciarCasilla(rover.getX(), rover.getY());
 
 
         // Verificar la nueva posición del jugador

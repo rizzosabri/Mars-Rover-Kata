@@ -37,7 +37,7 @@ public class Tablero {
         }
     }
 
-    public void borrarContenido( int x, int y) {
+    public void vaciarCasilla( int x, int y) {
         int indice = y * ejeX + x;
         if (indice >= 0 && indice < casillas.length) {
             casillas[indice] = null;
