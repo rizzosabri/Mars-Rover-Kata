@@ -37,14 +37,33 @@ public class Tablero {
         }
     }
 
-    public void inicializarConContenidoEnPosicionAleatoria(Rover rover) {
+    public void borrarContenido( int x, int y) {
+        int indice = y * ejeX + x;
+        if (indice >= 0 && indice < casillas.length) {
+            casillas[indice] = null;
+        }
+    }
+    public void inicializarConObjetoEnPosicionAleatoria(ElementosDelMapa elemento) {
+        int x =coordenadaXAleatoria(ejeX);
+        int y= coordenadaYAleatoria(ejeY);
+        if (getCasilla(x,y)==null){
+        elemento.setX(x);
+        elemento.setY(y);
+        colocarContenido(elemento, x, y);
+        }
+
+    }
+
+    public int coordenadaXAleatoria(int ejeX){
         Random random = new Random();
         int x = random.nextInt(ejeX);
-        int y = random.nextInt(ejeY);
-
-        rover.setX(x);
-        rover.setY(y);
-
-        colocarContenido(rover, x, y);
+        return x;
     }
+
+    public int coordenadaYAleatoria(int ejeY){
+        Random random = new Random();
+        int y = random.nextInt(ejeY);
+        return y;
+    }
+
 }

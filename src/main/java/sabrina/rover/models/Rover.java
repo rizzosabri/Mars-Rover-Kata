@@ -1,33 +1,13 @@
 package sabrina.rover.models;
-
-public class Rover {
-
-        private int x; // Posición en el eje X
-        private int y; // Posición en el eje Y
-        private String orientacion; // Orientación del rover
+public class Rover extends ElementosDelMapa {
+        private String orientacion;
 
         public Rover(int x, int y, String orientacion) {
-            this.x = x;
-            this.y = y;
+            super(x, y);
             this.orientacion = orientacion;
         }
 
-        // Getters y setters para los atributos
-        public int getX() {
-            return x;
-        }
-
-        public void setX(int x) {
-            this.x = x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public void setY(int y) {
-            this.y = y;
-        }
+        // Getters y setters
 
         public String getOrientacion() {
             return orientacion;
@@ -38,7 +18,7 @@ public class Rover {
         }
 
     public void mover(String direccion) {
-       if(direccion=="F"){ //F= FORWARD
+       if("F".equals(direccion)){ //F= FORWARD
         switch (orientacion) {
             case "Norte":
                 y--;
@@ -56,7 +36,7 @@ public class Rover {
                 throw new IllegalArgumentException("Orientación no válida");
         }
     }
-        if(direccion=="B"){ //F= BACKWARD
+        if("B".equals(direccion)){ //F= BACKWARD
             switch (orientacion) {
                 case "Norte":
                     y++;
@@ -77,7 +57,7 @@ public class Rover {
     }
 
     public void cambiarOrientacion(String sentido) {
-        if (sentido== "R"){
+        if ("R".equals(sentido)){
             switch (orientacion) {
                 case "Norte":
                     orientacion="Este";
@@ -93,7 +73,7 @@ public class Rover {
                     break;
             }
         }
-        if(sentido=="L"){
+        if("L".equals(sentido)){
             switch (orientacion) {
                 case "Norte":
                     orientacion="Oeste";
