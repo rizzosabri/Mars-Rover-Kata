@@ -10,20 +10,22 @@ public class Main {
         Tablero tablero = new Tablero(10, 10); // Ajusta el tamaño del tablero según tus necesidades
         Rover rover = new Rover(0, 0, "Este"); // Puedes ajustar la orientación inicial si lo deseas
         tablero.inicializarConContenidoEnPosicionAleatoria(rover);
-        System.out.println("Posición del Rover: X=" + rover.getX() + ", Y=" + rover.getY());
+      /*      System.out.println("Posición del Rover: X=" + rover.getX() + ", Y=" + rover.getY());
         System.out.println(rover.getOrientacion());
         rover.cambiarOrientacion("L");
         System.out.println(rover.getOrientacion());
         rover.mover("F");
-
+*/
         // Verificar la nueva posición del jugador
-        System.out.println("Nueva posición del rover: X=" + rover.getX() + ", Y=" + rover.getY());
+        System.out.println("Rover se encuentra en la posicion: X= " + rover.getX() +
+                ", Y=" + rover.getY() + ". Con orientacion hacia el : " + rover.getOrientacion()+"."
+        );
 
         boolean continuarMoviendo;
         do {
             continuarMoviendo = true;
             System.out.println("Ingresa los comandos que desee  para mover al rover (F=HACIA DELANTE, B=HACIA ATRAS," +
-                    " R=GIRAR SU ORIENTACION HACIA LA DERECHA , L=GIRAR SU ORIENTACION HACIA LA IZQUIERDA). Si ha llegado a destino y desea salir " +
+                    " R=GIRAR SU ORIENTACION HACIA LA DERECHA, L=GIRAR SU ORIENTACION HACIA LA IZQUIERDA). Si ha llegado a destino y desea salir " +
                     "ingrese S:");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine().toUpperCase();
