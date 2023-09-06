@@ -4,7 +4,7 @@ public class Rover {
 
         private int x; // Posición en el eje X
         private int y; // Posición en el eje Y
-        private String orientacion; // Orientación del jugador
+        private String orientacion; // Orientación del rover
 
         public Rover(int x, int y, String orientacion) {
             this.x = x;
@@ -86,10 +86,10 @@ public class Rover {
                     orientacion="Oeste";
                     break;
                 case "Este":
-                    orientacion="Norte";
+                    orientacion="Sur";
                     break;
                 case "Oeste":
-                    orientacion="Sur";
+                    orientacion="Norte";
                     break;
             }
         }
@@ -102,12 +102,14 @@ public class Rover {
                     orientacion="Este";
                     break;
                 case "Este":
-                    orientacion="Sur";
+                    orientacion="Norte";
                     break;
                 case "Oeste":
-                    orientacion="Norte";
+                    orientacion="Sur";
                     break;
             }
         }
     }
+
+
 }
