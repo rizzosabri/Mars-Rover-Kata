@@ -13,9 +13,8 @@ public class Main {
         tablero.inicializarConContenidoEnPosicionAleatoria(rover);
         System.out.println("Posición del Rover: X=" + rover.getX() + ", Y=" + rover.getY());
         System.out.println(rover.getOrientacion());
-        rover.cambiarOrientacion("R");
+        rover.cambiarOrientacion("L");
         System.out.println(rover.getOrientacion());
-
         rover.moverAdelante();
 
         // Verificar la nueva posición del jugador

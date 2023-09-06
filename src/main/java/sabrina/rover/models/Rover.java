@@ -74,5 +74,21 @@ public class Rover {
                     break;
             }
         }
+        if(sentido=="L"){
+            switch (orientacion) {
+                case "Norte":
+                    orientacion="Oeste";
+                    break;
+                case "Sur":
+                    orientacion="Este";
+                    break;
+                case "Este":
+                    orientacion="Sur";
+                    break;
+                case "Oeste":
+                    orientacion="Norte";
+                    break;
+            }
+        }
     }
 }
