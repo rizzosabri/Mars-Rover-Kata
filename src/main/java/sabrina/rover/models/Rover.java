@@ -37,7 +37,8 @@ public class Rover {
             this.orientacion = orientacion;
         }
 
-    public void moverAdelante() {
+    public void mover(String direccion) {
+       if(direccion=="F"){ //F= FORWARD
         switch (orientacion) {
             case "Norte":
                 y--;
@@ -55,7 +56,25 @@ public class Rover {
                 throw new IllegalArgumentException("Orientación no válida");
         }
     }
-
+        if(direccion=="B"){ //F= BACKWARD
+            switch (orientacion) {
+                case "Norte":
+                    y++;
+                    break;
+                case "Sur":
+                    y--;
+                    break;
+                case "Este":
+                    x--;
+                    break;
+                case "Oeste":
+                    x++;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Orientación no válida");
+            }
+        }
+    }
 
     public void cambiarOrientacion(String sentido) {
         if (sentido== "R"){

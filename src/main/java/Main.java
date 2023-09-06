@@ -15,7 +15,7 @@ public class Main {
         System.out.println(rover.getOrientacion());
         rover.cambiarOrientacion("L");
         System.out.println(rover.getOrientacion());
-        rover.moverAdelante();
+        rover.mover("F");
 
         // Verificar la nueva posición del jugador
         System.out.println("Nueva posición del rover: X=" + rover.getX() + ", Y=" + rover.getY());
