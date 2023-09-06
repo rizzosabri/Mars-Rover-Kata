@@ -37,7 +37,7 @@ public class Tablero {
         }
     }
 
-    public void inicializarConJugadorEnPosicionAleatoria(Rover rover) {
+    public void inicializarConContenidoEnPosicionAleatoria(Rover rover) {
         Random random = new Random();
         int x = random.nextInt(ejeX);
         int y = random.nextInt(ejeY);

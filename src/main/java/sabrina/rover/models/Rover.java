@@ -55,5 +55,24 @@ public class Rover {
                 throw new IllegalArgumentException("Orientación no válida");
         }
     }
-    }
 
+
+    public void cambiarOrientacion(String sentido) {
+        if (sentido== "R"){
+            switch (orientacion) {
+                case "Norte":
+                    orientacion="Este";
+                    break;
+                case "Sur":
+                    orientacion="Oeste";
+                    break;
+                case "Este":
+                    orientacion="Norte";
+                    break;
+                case "Oeste":
+                    orientacion="Sur";
+                    break;
+            }
+        }
+    }
+}
