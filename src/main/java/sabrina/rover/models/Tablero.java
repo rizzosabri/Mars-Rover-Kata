@@ -44,14 +44,17 @@ public class Tablero {
         }
     }
     public void inicializarConObjetoEnPosicionAleatoria(ElementosDelMapa elemento) {
+        boolean flag=true;
+        do{
         int x =coordenadaXAleatoria(ejeX);
         int y= coordenadaYAleatoria(ejeY);
         if (getCasilla(x,y)==null){
         elemento.setX(x);
         elemento.setY(y);
         colocarContenido(elemento, x, y);
+        flag=false;
         }
-
+    }while(flag);
     }
 
     public int coordenadaXAleatoria(int ejeX){
