@@ -26,12 +26,15 @@ public class Rover extends ElementosDelMapa {
                 break;
             case "Sur":
                 y++;
+                this.fueraDeLimiteInferior();
                 break;
             case "Este":
                 x++;
+                this.fueraDeLimitePorElLadoDerecho();
                 break;
             case "Oeste":
                 x--;
+                this.fueraDeLimitePorElLadoIzquierdo();
                 break;
             default:
                 throw new IllegalArgumentException("Orientación no válida");
@@ -41,15 +44,19 @@ public class Rover extends ElementosDelMapa {
             switch (orientacion) {
                 case "Norte":
                     y++;
+                    this.fueraDeLimiteInferior();
                     break;
                 case "Sur":
                     y--;
+                    this.fueraDeLimiteSuperior();
                     break;
                 case "Este":
                     x--;
+                    this.fueraDeLimitePorElLadoIzquierdo();
                     break;
                 case "Oeste":
                     x++;
+                    this.fueraDeLimitePorElLadoDerecho();
                     break;
                 default:
                     throw new IllegalArgumentException("Orientación no válida");
@@ -93,8 +100,28 @@ public class Rover extends ElementosDelMapa {
     }
 
     public void fueraDeLimiteSuperior() {
+            int largoDelTablero=Tablero.ejeY;
         if (this.getY() == -1) {
-            this.setY(Tablero.ejeY);
+            this.setY(largoDelTablero);
         }
-}
+    }
+
+    public void fueraDeLimitePorElLadoIzquierdo() {
+        if (this.getX() == -1) {
+            this.setX(Tablero.ejeX);
+        }
+    }
+
+    public void fueraDeLimitePorElLadoDerecho() {
+        if (this.getX() >Tablero.ejeX) {
+            this.setX(0);
+        }
+    }
+
+    public void fueraDeLimiteInferior() {
+
+        if (this.getY() >Tablero.ejeY) {
+            this.setY(0);
+        }
+    }
 }

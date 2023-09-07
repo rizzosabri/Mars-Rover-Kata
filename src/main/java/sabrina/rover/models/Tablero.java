@@ -22,9 +22,8 @@ public class Tablero {
         int indice = y * ejeX + x;
         if (indice >= 0 && indice < casillas.length) {
             return casillas[indice];
-        } else {
-            throw new IllegalArgumentException("Posición fuera de los límites del tablero");
         }
+        return null;
     }
 
     // Método para colocar contenido en una casilla en una posición específica
