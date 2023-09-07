@@ -22,6 +22,7 @@ public class Rover extends ElementosDelMapa {
         switch (orientacion) {
             case "Norte":
                 y--;
+                this.fueraDeLimiteSuperior();
                 break;
             case "Sur":
                 y++;
@@ -91,5 +92,9 @@ public class Rover extends ElementosDelMapa {
         }
     }
 
-
+    public void fueraDeLimiteSuperior() {
+        if (this.getY() == -1) {
+            this.setY(Tablero.ejeY);
+        }
+}
 }

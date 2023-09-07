@@ -3,8 +3,8 @@ package sabrina.rover.models;
 import java.util.Random;
 
 public class Tablero {
-    private int ejeX; // Número de columnas en el tablero
-    private int ejeY; // Número de filas en el tablero
+    static int ejeX; // Número de columnas en el tablero
+    static int ejeY; // Número de filas en el tablero
     private Object[] casillas; // Array unidimensional para representar el contenido de las casillas
 
     public Tablero(int ejeX, int ejeY) {
@@ -43,18 +43,19 @@ public class Tablero {
             casillas[indice] = null;
         }
     }
+
     public void inicializarConObjetoEnPosicionAleatoria(ElementosDelMapa elemento) {
-        boolean flag=true;
-        do{
-        int x =coordenadaXAleatoria(ejeX);
-        int y= coordenadaYAleatoria(ejeY);
-        if (getCasilla(x,y)==null){
-        elemento.setX(x);
-        elemento.setY(y);
-        colocarContenido(elemento, x, y);
-        flag=false;
-        }
-    }while(flag);
+        boolean flag = true;
+        do {
+            int x = coordenadaXAleatoria(ejeX);
+            int y = coordenadaYAleatoria(ejeY);
+            if (getCasilla(x, y) == null) {
+                elemento.setX(x);
+                elemento.setY(y);
+                colocarContenido(elemento, x, y);
+                flag = false;
+            }
+        } while (flag);
     }
 
     public int coordenadaXAleatoria(int ejeX){
@@ -67,6 +68,10 @@ public class Tablero {
         Random random = new Random();
         int y = random.nextInt(ejeY);
         return y;
+    }
+
+    public int getLimiteEjeY(){
+        return ejeY;
     }
 
 }
