@@ -1,3 +1,5 @@
+
+
 import sabrina.rover.models.Obstaculo;
 import sabrina.rover.models.Rover;
 import sabrina.rover.models.Tablero;
@@ -9,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         Tablero tablero = new Tablero(10, 10); // Ajusta el tamaño del tablero según tus necesidades
-        Rover rover = new Rover(0, 0, "Norte");
+        Rover rover = new Rover(0, 0, "Norte", tablero);
         Obstaculo obs1 = new Obstaculo(0,1);
         tablero.inicializarConObjetoEnPosicionAleatoria(rover);
         tablero.inicializarConObjetoEnPosicionAleatoria(obs1);
@@ -37,7 +39,7 @@ public class Main {
                 switch (comando) {
                     case "B":
                         rover.mover("B");
-                        if (tablero.getCasilla(rover.getX(), rover.getY())!=null){
+                        if (tablero.contenidoCasilla(rover.getX(), rover.getY())!=null){
                             System.out.println("Lo siento, casillero ocupado obstruido, no puede pasar.");
                             rover.mover("F");
                         }
@@ -45,7 +47,7 @@ public class Main {
                         break;
                     case "F":
                         rover.mover("F");
-                        if (tablero.getCasilla(rover.getX(), rover.getY())!=null){
+                        if (tablero.contenidoCasilla(rover.getX(), rover.getY())!=null){
                             System.out.println("Lo siento, casillero ocupado obstruido, no puede pasar.");
                             rover.mover("B");
                         }

@@ -1,0 +1,43 @@
+package sabrina.rover.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import sabrina.rover.models.Rover;
+import sabrina.rover.services.RoverService;
+import sabrina.rover.services.TableroService;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/rover")
+public class RoverController {
+
+    @Autowired
+    private RoverService roverService;
+
+    @Autowired
+    private TableroService tableroService;
+
+    @GetMapping("/{id}")
+    public Rover mostrarRover(@PathVariable("id") Long id) {
+        return roverService.get(id); //
+    }
+
+
+    @PostMapping("/mover")
+    public String ingresoComandosRover(@RequestBody Map<String, String> requestBody) {
+        String mensaje = requestBody.get("mensaje");
+        char[] comandos = roverService.ingresoDeComandos(mensaje);
+        roverService.mover(comandos);
+        return "comandos recibidos";
+    }
+
+    @PostMapping("/guardar")
+    public String guardarRover(@RequestBody Map<String, String> requestBody) {
+        String mensaje = requestBody.get("guardar");
+        roverService.save();
+        return "rover actualizado";
+    }
+
+
+}

@@ -6,7 +6,7 @@ import org.springframework.util.Assert;
 class RoverTest {
     Tablero tablero = new Tablero(5,5);
     Obstaculo obstaculo = new Obstaculo(0,0);
-    Rover rover = new Rover(0,0,"Norte");
+    Rover rover = new Rover(0,0,"Norte", tablero);
 
 
     @Test
