@@ -14,7 +14,7 @@
 
 - Endpoint: `/api/tablero`
 - **Método HTTP: `GET`**
-  - Descripción: Utiliza este endpoint para obtener información sobre el estado actual del tablero según su ID.
+  - Descripción: Utiliza este endpoint para obtener información sobre el estado actual del tablero.
   - Ejemplo de Respuesta: 
     ```json
     {
@@ -26,7 +26,7 @@
 
 - Endpoint: `/api/rover`
 - **Método HTTP: `GET`**
-  - Descripción: Este endpoint te permite obtener el estado actual EN BD del rover según su ID.
+  - Descripción: Este endpoint te permite obtener el estado actual EN BD del rover.
   - Ejemplo de Respuesta: 
     ```json
     {
