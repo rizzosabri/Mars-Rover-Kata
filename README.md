@@ -6,7 +6,7 @@ Api Rest ROVER
 
 ## Endpoint: /api/tablero 
 
-Método HTTP: <font color="orange">POST</font> 
+Método HTTP: <font color="orange">POST</font> .
 Descripción: Utiliza este endpoint para iniciar el tablero. Al ejecutar esta operación, se generará un tablero y se inicializará con objetos, como rovers y obstáculos. 
 Cuerpo de la Solicitud: 
 json 
