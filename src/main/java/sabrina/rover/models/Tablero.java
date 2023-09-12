@@ -18,13 +18,14 @@ public class Tablero {
     protected int ejeX; // Número de columnas en el tablero
     @Column(name = "alto")
     protected int ejeY; // Número de filas en el tablero
-   @Transient
-   @JsonIgnore
+    @Transient
+    @JsonIgnore
     private Object[] casillas; // Array unidimensional para representar el contenido de las casillas
 
 
     public Tablero() {
     }
+
     public Tablero(int ejeX, int ejeY) {
         this.ejeX = ejeX;
         this.ejeY = ejeY;
@@ -34,6 +35,7 @@ public class Tablero {
             casillas[i] = null; // Inicialmente, todas las casillas están vacías
         }
     }
+
     @Transient
     // Método para obtener el contenido de una casilla en una posición específica
     public Object contenidoCasilla(int x, int y) {
@@ -80,8 +82,6 @@ public class Tablero {
         int valor = random.nextInt(eje);
         return valor;
     }
-
-
 
 
 }

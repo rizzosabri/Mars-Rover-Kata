@@ -8,17 +8,24 @@ import jakarta.persistence.*;
 public class Rover extends ElementosDelMapa {
 
     @Column(name = "orientacion")
-    private String orientacion;
+    protected String orientacion;
     @ManyToOne(fetch = FetchType.EAGER, cascade= CascadeType.MERGE)
     @JoinColumn (name = "id_tablero")
     private Tablero tablero;
 
+
+
+    public Rover
+            (){
+        super();
+    };
 
     public Rover(int x, int y, String orientacion,Tablero tablero) {
         super(x, y);
         this.orientacion = orientacion;
         this.tablero = tablero;
     }
+
 
     // Getters y setters
 
@@ -30,7 +37,16 @@ public class Rover extends ElementosDelMapa {
         this.orientacion = orientacion;
     }
 
+    @Override
+    public String toString() {
+        return " {" +
+                "Id='" + getId() + '\'' +
+                "X='" + getX() + '\'' +
+                "Y='" + getY() + '\'' +
 
+                "orientacion='" + orientacion + '\'' +
+                '}';
+    }
     public void mover(String direccion) {
         if ("F".equals(direccion)) { //F= FORWARD
             switch (orientacion) {

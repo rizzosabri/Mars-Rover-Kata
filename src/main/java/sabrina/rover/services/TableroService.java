@@ -16,6 +16,8 @@ public class TableroService {
     @Autowired
     private TableroRepository tableroRepository;
     @Autowired
+    private RoverService roverService;
+    @Autowired
     private RoverRepository roverRepository;
 
     @Transactional
@@ -26,7 +28,7 @@ public class TableroService {
         saveRover(rover);
     }
 
-    Rover saveRover(Rover rover) {
+    public Rover saveRover(Rover rover) {
         roverRepository.save(rover);
         return rover;
     }
@@ -36,12 +38,14 @@ public class TableroService {
         this.tablero.inicializarConObjetoEnPosicionAleatoria(obstaculo);
         this.tablero.inicializarConObjetoEnPosicionAleatoria(rover);
         tablero = this.tablero;
+        System.out.println("tablero inicial: " + tablero);
         return this.tablero;
     }
 
     @Transactional
-    public Tablero get(Long id) {
-        return tableroRepository.findById(id).orElse(null);
+    public Tablero get() {
+        System.out.println(tableroRepository.findAll());
+        return tableroRepository.findAll().get(0);
     }
 
     @Transactional
@@ -60,5 +64,52 @@ public class TableroService {
         return rover;
     }
 
+    public Rover mover(char[] comandos) {
+        rover = roverService.get();
+        tablero.vaciarCasilla(rover.getX(), rover.getY());
+        for (int i = 0; i <= comandos.length - 1; i++) {
+            String comando = Character.toString(comandos[i]);
+            switch (comando) {
+                case "B":
+                    rover.mover("B");
+                    if (tablero.contenidoCasilla(rover.getX(), rover.getY()) != null) {
+                        System.out.println("Lo siento, casillero ocupado obstruido, no puede pasar.");
+                        rover.mover("F");
+                    }
+                    System.out.println("la posicion actual es :  x = " + rover.getX() + " y = " + rover.getY());
+                    break;
+                case "F":
+                    rover.mover("F");
+                    if (tablero.contenidoCasilla(rover.getX(), rover.getY()) != null) {
+                        System.out.println("Lo siento, casillero ocupado obstruido, no puede pasar.");
+                        rover.mover("B");
+                    }
+                    System.out.println("la posicion actual es :  x = " + rover.getX() + " y = " + rover.getY());
+                    break;
+                case "R":
+                    rover.cambiarOrientacion("R");
+                    System.out.println("la nueva orientacion es : " + rover.getOrientacion());
+                    break;
+                case "L":
+                    rover.cambiarOrientacion("L");
+                    System.out.println("la nueva orientacion es : " + rover.getOrientacion());
+                    break;
+                case "S":
+                    System.out.println("FIN: HA LLEGADO A DESTINO");
+                    break;
+                default:
+                    System.out.println("Entrada no válida.");
+                    break;
+            }
 
+        }
+        System.out.println("el nuervo rover es : "  + rover);
+        return rover;
+    }
+
+    public Rover actualizarRover() {
+        System.out.println("el rover que quiero guardar es: " + rover);
+        saveRover(rover);
+        return rover;
+    }
 }

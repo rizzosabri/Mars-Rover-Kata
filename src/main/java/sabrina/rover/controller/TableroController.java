@@ -9,12 +9,13 @@ import sabrina.rover.services.TableroService;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/api/tablero")
 public class TableroController {
 
     @Autowired
     private TableroService tableroService;
 
-    @PostMapping ("/api/tablero")
+    @PostMapping ("")
     //ResponseEntity es una clase proporcionada por Spring Framework que permite a un controlador devolver una respuesta HTTP personalizada
     public ResponseEntity<String> ejecutarInicio(@RequestBody Map<String, String> requestBody) {
         String mensaje = requestBody.get("mensaje");
@@ -27,9 +28,9 @@ public class TableroController {
         }
     }
 
-    @GetMapping("/api/tablero/{id}")
-    public Tablero get(@PathVariable("id") Long id) {
-        return tableroService.get(id);
+    @GetMapping("")
+    public Tablero get() {
+        return tableroService.get();
     }
 
 

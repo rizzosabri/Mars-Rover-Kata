@@ -21,7 +21,7 @@ public class ElementosDelMapa {
         this.x = x;
         this.y = y;
     }
-
+public ElementosDelMapa(){};
     public int getY() {
         return y;
     }

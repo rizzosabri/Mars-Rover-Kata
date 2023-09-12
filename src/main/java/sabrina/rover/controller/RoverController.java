@@ -18,9 +18,9 @@ public class RoverController {
     @Autowired
     private TableroService tableroService;
 
-    @GetMapping("/{id}")
-    public Rover mostrarRover(@PathVariable("id") Long id) {
-        return roverService.get(id); //
+    @GetMapping("")
+    public Rover mostrarRover() {
+        return roverService.get(); //
     }
 
 
@@ -28,14 +28,14 @@ public class RoverController {
     public String ingresoComandosRover(@RequestBody Map<String, String> requestBody) {
         String mensaje = requestBody.get("mensaje");
         char[] comandos = roverService.ingresoDeComandos(mensaje);
-        roverService.mover(comandos);
+        tableroService.mover(comandos);
         return "comandos recibidos";
     }
 
     @PostMapping("/guardar")
     public String guardarRover(@RequestBody Map<String, String> requestBody) {
         String mensaje = requestBody.get("guardar");
-        roverService.save();
+        tableroService.actualizarRover();
         return "rover actualizado";
     }
 
