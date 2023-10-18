@@ -17,9 +17,13 @@ public class ElementosDelMapa {
     protected int x; // Posición en el eje X
     @Column(name="Posicion en Y")
     protected int y; // Posición en el eje Y
+
+
     public ElementosDelMapa(int x, int y) {
         this.x = x;
         this.y = y;
+
+
     }
 public ElementosDelMapa(){};
     public int getY() {
@@ -34,4 +38,6 @@ public ElementosDelMapa(){};
     public void setX(int x) {
         this.x = x;
     }
+
+
 }

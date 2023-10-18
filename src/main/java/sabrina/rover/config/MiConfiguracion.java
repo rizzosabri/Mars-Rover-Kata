@@ -2,6 +2,7 @@ package sabrina.rover.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import sabrina.rover.models.Obstaculo;
 import sabrina.rover.models.Rover;
 import sabrina.rover.models.Tablero;
 
@@ -16,6 +17,11 @@ public class MiConfiguracion {
     @Bean
     public Tablero tablero() {
         return new Tablero(0,0);
+    }
+
+    @Bean
+    public Obstaculo obstaculo() {
+        return new Obstaculo(0,0, tablero());
     }
     @Bean
     public Rover rover() {

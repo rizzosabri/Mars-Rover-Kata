@@ -1,7 +1,6 @@
 package sabrina.rover.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -13,7 +12,7 @@ public class Obstaculo extends ElementosDelMapa {
     }
 
 
-    public Obstaculo(int x, int y) {
+    public Obstaculo(int x, int y,Tablero tablero) {
         super(x, y);
     }
 

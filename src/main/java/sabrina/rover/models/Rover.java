@@ -9,11 +9,10 @@ public class Rover extends ElementosDelMapa {
 
     @Column(name = "orientacion")
     protected String orientacion;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade= CascadeType.MERGE)
     @JoinColumn (name = "id_tablero")
     private Tablero tablero;
-
-
 
     public Rover
             (){
@@ -53,6 +52,7 @@ public class Rover extends ElementosDelMapa {
                 case "Norte":
                     y--;
                     this.fueraDeLimiteSuperior();
+                    System.out.println("holaaaaaaaaaa la posicion actual es :  x = " + getX() + " y = " + getY());
                     break;
                 case "Sur":
                     y++;
@@ -70,7 +70,7 @@ public class Rover extends ElementosDelMapa {
                     throw new IllegalArgumentException("Orientación no válida");
             }
         }
-        if ("B".equals(direccion)) { //F= BACKWARD
+        if ("B".equals(direccion)) { //b= BACKWARD
             switch (orientacion) {
                 case "Norte":
                     y++;
@@ -92,6 +92,7 @@ public class Rover extends ElementosDelMapa {
                     throw new IllegalArgumentException("Orientación no válida");
             }
         }
+
     }
 
     public void cambiarOrientacion(String sentido) {

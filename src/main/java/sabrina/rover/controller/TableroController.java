@@ -10,11 +10,17 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/tablero")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class TableroController {
 
     @Autowired
     private TableroService tableroService;
 
+
+    @GetMapping("hola")
+    public String pureba(){
+        return "hola";
+    }
     @PostMapping ("")
     //ResponseEntity es una clase proporcionada por Spring Framework que permite a un controlador devolver una respuesta HTTP personalizada
     public ResponseEntity<String> ejecutarInicio(@RequestBody Map<String, String> requestBody) {

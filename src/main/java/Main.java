@@ -12,7 +12,7 @@ public class Main {
 
         Tablero tablero = new Tablero(10, 10); // Ajusta el tamaño del tablero según tus necesidades
         Rover rover = new Rover(0, 0, "Norte", tablero);
-        Obstaculo obs1 = new Obstaculo(0,1);
+        Obstaculo obs1 = new Obstaculo(0,1,tablero);
         tablero.inicializarConObjetoEnPosicionAleatoria(rover);
         tablero.inicializarConObjetoEnPosicionAleatoria(obs1);
         tablero.vaciarCasilla(rover.getX(), rover.getY());
