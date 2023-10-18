@@ -1,0 +1,39 @@
+#rover{
+    position: absolute;
+    width: 85px;
+    padding: 30px;
+
+}
+
+#fondo{
+    width: 510px;
+    height: 510px;
+    padding: 10px;
+}
+
+.obstaculo {
+    position: absolute;
+    width: 95px;
+    padding: 25px;
+    margin-top: 15px;
+}
+
+#control-panel{
+    position: absolute;
+    z-index: 10;
+    padding: 10px;
+    bottom: 10px;
+    left: calc(50% - 240px)
+}
+
+#control-panel .btn-control{
+  width: 50px;
+  cursor: pointer;
+
+}
+
+#control-panel .btn-start{
+    width: 50px;
+    cursor: pointer;
+  
+  }
